@@ -25,3 +25,10 @@ for i in range(1):
     print("*"*10)
 for i in range(4):
     print("*"*2+" "*6+"*"*2)
+
+
+def average_of_three(a, b, c):
+    return (a + b + c) / 2
+
+result = average_of_three(10, 20, 30)
+print(f"The average is: {result}")
