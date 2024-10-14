@@ -1,10 +1,15 @@
-history = [
-    [('Haskell Heroine', 'defend', 'Recursion Rebuff', 2, 0), ('Python Pal', 'item', 'Screen Repair Kit')],
-    [('Linux Legend', 'attack', 'Root Reckoning', 4, 2, 5, ['Haskell Heroine', 'Python Pal']),
-     ('Binary Bot', 'item', 'Debugging Tool')],
-    [('Haskell Heroine', 'attack', 'Lambda Lunge', 3, 1, 0, ['Linux Legend']),
-     ('Python Pal', 'item', 'RAM Boost')],
-    [('Linux Legend', 'attack', 'Kernel Kick', 4, 1, 3, ['Python Pal']),
-     ('Binary Bot', 'swap', 'Network Ninja')]
-]
-calculate_comprpg_stats(history, "example_game1_stats.csv")
+import csv
+
+
+def reverse_records(csv_filename, new_filename):
+    csv_file = open(csv_filename, "r")
+    reader = csv.reader(csv_file)
+    header = next(reader)
+    data2d = list(reader)
+    newdata2d = data2d[::-1]
+    csv_file.close()
+    new_file = open(new_filename, "w")
+    writer = csv.writer(new_file)
+    writer.writerow(header)
+    writer.writerows(newdata2d)
+    new_file.close()

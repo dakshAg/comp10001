@@ -4,9 +4,9 @@
 
 from PIL import Image
 
-DIMENSION_BLOCK = 100
+BLOCK_SIZE = 100
 IMAGE_FORMAT = "RGBA"
-GREEN_COLOUR = (0, 255, 0)
+GREEN_COLOUR = (0, 255, 0, 255)
 
 lawnmower_icon = Image.open('lawnmower.png')
 lawnmower_icon = lawnmower_icon.resize((100, 100))
@@ -18,11 +18,12 @@ backyard = [
 ]
 lawnmower = [0, 3]
 
-bar = Image.new(IMAGE_FORMAT, (len(backyard[0]) * DIMENSION_BLOCK, len(backyard) * DIMENSION_BLOCK), (255, 255, 255, 255))
+bar = Image.new(IMAGE_FORMAT, (len(backyard[0]) * BLOCK_SIZE,
+                               len(backyard) * BLOCK_SIZE), (255, 255, 255, 255)
+                )
 
 
 def fill_with_colour(x_start, y_start, x_end, y_end, color):
-    """Fill the area with the given color"""
     for i in range(x_start, x_end):
         for j in range(y_start, y_end):
             bar.putpixel((i, j), color)
